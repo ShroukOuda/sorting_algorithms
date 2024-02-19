@@ -56,7 +56,7 @@ void Quick(int *array, size_t lb, size_t ub, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
+	if (array == NULL)
 		return;
 	Quick(array, 0, size - 1, size);
 }
