@@ -44,7 +44,8 @@ void Quick(int *array, size_t lb, size_t ub, size_t size)
 
 		if (loc > 0)
 			Quick(array, lb, loc - 1, size);
-		Quick(array, loc + 1, ub, size);
+		if (loc < size - 1)
+			Quick(array, loc + 1, ub, size);
 	}
 }
 /**
