@@ -4,10 +4,9 @@
  * @lb:----
  * @ub:---
  * @array:---
- * @size:----
  * Return: ---.
  */
-size_t partition(int *array, size_t lb, size_t ub, size_t size)
+size_t partition(int *array, size_t lb, size_t ub)
 {
 	int pivot = array[ub], temp;
 	size_t i = lb - 1, j;
@@ -25,7 +24,6 @@ size_t partition(int *array, size_t lb, size_t ub, size_t size)
 	temp = array[ub];
 	array[ub] = array[i + 1];
 	array[i + 1] = temp;
-	print_array(array, size);
 	return (i + 1);
 }
 /**
@@ -38,14 +36,13 @@ size_t partition(int *array, size_t lb, size_t ub, size_t size)
  */
 void Quick(int *array, size_t lb, size_t ub, size_t size)
 {
-	if (lb < ub)
+	if (lb < ub && ub < size)
 	{
-		size_t loc = partition(array, lb, ub, size);
+		size_t loc = partition(array, lb, ub);
 
-		if (loc > 0)
-			Quick(array, lb, loc - 1, size);
-		if (loc < size - 1)
-			Quick(array, loc + 1, ub, size);
+		print_array(array, size);
+		Quick(array, lb, loc, size);
+		Quick(array, loc + 1, ub, size);
 	}
 }
 /**
@@ -56,7 +53,7 @@ void Quick(int *array, size_t lb, size_t ub, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL)
+	if (array == NULL || size < 2)
 		return;
 	Quick(array, 0, size - 1, size);
 }

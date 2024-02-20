@@ -18,14 +18,19 @@ struct listint_s *next;
 } listint_t;
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
+void _swap(int *a, int *b);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
-size_t partition(int *array, size_t lb, size_t ub, size_t size);
+size_t partition(int *array, size_t lb, size_t ub);
 void Quick(int *array, size_t lb, size_t ub, size_t size);
 void quick_sort(int *array, size_t size);
 void merge(int *array, size_t lb, size_t mid, size_t ub, size_t size);
 void mergesort(int *array, size_t lb, size_t ub, size_t size);
 void merge_sort(int *array, size_t size);
-
+size_t partition(int *array, size_t lb, size_t ub);
+void quick(int *array, size_t lb, size_t ub, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+void heapify(int *array, size_t size, size_t n, size_t i);
+void heap_sort(int *array, size_t size);
 #endif /* SORT_H */
