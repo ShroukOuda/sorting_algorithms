@@ -6,28 +6,25 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *temp = *list, *min, *res;
-	int x;
+	listint_t *cur = *list, *temp, *insert;
 
-	if (*list == NULL)
+	if (*list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
-
-	while (temp)
+	cur = cur->next;
+	while (cur)
 	{
-		min = temp;
-		res = temp->next;
-		while (res)
+		insert = cur->prev;
+		temp = cur;
+		while (insert && insert->n > temp->n)
 		{
-			print_list(*list);
-			if (min->n > res->n)
-			{
-				min = res;
-			}
-			res = res->next;
+			insert->next->n = insert->n;
+			insert = insert->prev;
 		}
-		x = temp->n;
-		temp->n = min->n;
-		min->n = x;
-		temp = temp->next;
+		if (!insert)
+			(*list)->n = cur->n;
+		else
+			insert->next->n = cur->n;
+		cur = temp;
+		print_list(*list);
 	}
 }

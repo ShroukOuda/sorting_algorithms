@@ -33,4 +33,5 @@ void quick(int *array, size_t lb, size_t ub, size_t size);
 void quick_sort_hoare(int *array, size_t size);
 void heapify(int *array, size_t size, size_t n, size_t i);
 void heap_sort(int *array, size_t size);
+void counting_sort(int *array, size_t size);
 #endif /* SORT_H */
